@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: gold;
+}
+
+.title {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  float: left;
+  width: 100%;
+  font-size: 40px;
+  font-family: fantasy;
+  font-style: oblique;
+}
+
+.results {
+  display: none;
+  float: left;
+  width: 100%;
+  color: silver;
+}
+
+.robot {
+  font-size: 60px;
+  float: left;
+  width: 100%;
+}
+
+.instruction {
+  float: left;
+  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-style: oblique;
+  font-variant: small-caps;
+}
+
+.choices {
+  float: left;
+  width: 100%;
+}
+
+.choices button {
+ height: 100px;
+ width: 100px;
+ border-radius: 100%;
+ background-color: inherit;
+ border-style: solid;
+ border-color: silver;
+ font-size: 80px;
+}
+
+.choices button:hover {
+  outline: none;
+  border-color: orange;
+  box-shadow: 0 0 7px orange;
+}
+
+.results button {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+
+.results #winner {
+  font-size: 50px;
+  font-family: cursive;
+}
+.results button:hover {
+  border-style: solid;
+  border-color: orange;
+  border-width: thin;
+  border-radius: 4px;
+}
