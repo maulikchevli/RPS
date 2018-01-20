@@ -4,109 +4,37 @@
     <meta charset="utf-8">
     <title>RPS</title>
     <link rel="stylesheet" href="RPS.css">
+    <script type="text/javascript" src="RPS.js"></script>
   </head>
   <body>
-    <div class="title">
-      <center>Rock, Paper, Scissor</center>
-    </div>
-    <div class="robot">
-      <center>🤖</center>
-    </div>
-    <div class="instruction" id="instruction">
-      <center>Select anyone to play!</center>
-    </div>
-    <div class="choices" id="choices">
-      <center>
-      <button type="button" name="button" id="rock" onclick="userChoice(this)">👊</button>
-      <button type="button" name="button" id="paper" onclick="userChoice(this)">✋</button>
-      <button type="button" name="button" id="scissor" onclick="userChoice(this)">✌️</button>
-      </center>
-    </div>
-    <div class="results" id="results">
-      <center>
-      <div class="instruction">
-        Result
+    <div class="center">
+      <div class="title">
+        Rock, Paper, Scissor
       </div>
-      <p>Your Choice: <span id="yourChoice"></span></p>
-      <p>Bot's Choice: <span id="computerChoice"></span> </p>
-      <p><span id="winner"></span></p>
-      <button type="button" name="button" onclick="playAgain()">Play Again?</button>
-      </center>
+      <div class="robot">
+        🤖
+      </div>
+      <div class="instruction" id="instruction">
+        Select anyone to play!
+      </div>
+      <div class="choices" id="choices">
+
+        <button type="button" name="button" id="rock" onclick="userChoice(this)">👊</button>
+        <button type="button" name="button" id="paper" onclick="userChoice(this)">✋</button>
+        <button type="button" name="button" id="scissor" onclick="userChoice(this)">✌️</button>
+
+      </div>
+      <div class="results" id="results">
+
+        <div class="instruction">
+          Result
+        </div>
+        <p>Your Choice: <span id="yourChoice"></span></p>
+        <p>Bot's Choice: <span id="computerChoice"></span> </p>
+        <p><span id="winner"></span></p>
+        <button type="button" name="button" onclick="playAgain()">Play Again?</button>
+
+      </div>
     </div>
   </body>
 </html>
-
-<script type="text/javascript">
-  function userChoice(userOption) {
-    var computerChoice = Math.floor(Math.random()*1000 + 1) % 3;
-    var userValue = getValue(userOption);
-    var winner = decideWinner(userValue,computerChoice);
-    document.getElementById("winner").innerHTML = winner;
-    document.getElementById("yourChoice").innerHTML = userOption.innerHTML;
-    document.getElementById("computerChoice").innerHTML = decryptValue(computerChoice);
-    document.getElementById("instruction").style.display = "none";
-    document.getElementById("choices").style.display = "none";
-    document.getElementById("results").style.display = "block";
-  }
-
-  function getValue(userOption) {
-    var userValue = 0;
-    switch (userOption.innerHTML) {
-      case "👊":
-        userValue = 0;
-        break;
-      case "✋":
-        userValue = 1;
-        break;
-      case "✌️":
-        userValue = 2;
-        break;
-      default:
-        break;
-    }
-    return userValue;
-  }
-
-  function decryptValue(value) {
-    var choice = "";
-    switch (value) {
-      case 0:
-        choice = "👊";
-        break;
-      case 1:
-        choice = "✋";
-        break;
-      case 2:
-        choice = "✌️";
-        break;
-      default:
-        break;
-    }
-    return choice;
-  }
-  function decideWinner(user,computer) {
-
-    var diff = (computer - user)%3;
-    switch (diff) {
-      case 1:
-      case -2:
-        return "Computer wins";
-        break;
-      case 2:
-      case -1:
-        return "You win";
-        break;
-      case 0:
-        return "Draw";
-        break;
-      default:
-        alert("Hey");
-    }
-  }
-
-  function playAgain() {
-    document.getElementById("choices").style.display = "block";
-    document.getElementById("instruction").style.display = "block";
-    document.getElementById("results").style.display = "none";
-  }
-</script>
